@@ -5,9 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <main>
+        <section class="container">
+            <div class="img-container">
+                <img src="./img/jacinto-1.jpg" alt="Album Art" id="album-art">
+            </div>
+            <h2>Aadat</h2>
+            <h5>Sucha Yaar</h5>
+            <audio src="./music/Aadat Sucha Yaar.mp3"></audio>
+            <div class="progress-area">
+                <div class="time-number">
+                    <span class="crnt-timing">0:00</span>
+                    <span class="total-time">4:05</span>
+                </div>
+                <div class="progress-bar">
+                    <span class="inner-bar"></span>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+                <i class="fas fa-play" id="play" title="play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div>
+        </section>
+    </main>
     <script src="./script.js"></script>
 </body>
 </html>

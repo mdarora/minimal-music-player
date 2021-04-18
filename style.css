@@ -64,7 +64,7 @@ main{
     cursor: pointer;
 }
 .container .progress-area .progress-bar span{
-    width: 50%;
+    width: 0%;
     border-radius: 10px;
     position: absolute;
     top:0;

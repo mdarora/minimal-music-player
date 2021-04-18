@@ -1,10 +1,13 @@
 const coverImg = document.querySelector("img");
 const title = document.getElementById("title");
 const artist = document.getElementById("artist");
+const currentTime = document.getElementById("crnt-timing");
+const totalDuration = document.getElementById("total-duration");
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 const music = document.querySelector("audio");
+const innerProgressBar = document.getElementById("inner-bar");
 
 const songs = [
     {
@@ -63,7 +66,16 @@ function nextSong(){
     playSong();
 }
 
+function updateProgress(e){
+    if(isPlaying){
+        const {duration, currentTime} =  e.srcElement;
+        innerProgressBar.style.width = `${(currentTime / duration) * 100}%`;
+    }
+}
+
 loadSong(songIndex);
+
+music.addEventListener("timeupdate", updateProgress);
 
 playBtn.addEventListener("click", ()=> isPlaying ? pauseSong() : playSong());
 prevBtn.addEventListener("click", prevSong);

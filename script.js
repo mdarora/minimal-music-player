@@ -1,13 +1,14 @@
 const coverImg = document.querySelector("img");
 const title = document.getElementById("title");
 const artist = document.getElementById("artist");
-const currentTime = document.getElementById("crnt-timing");
+const currentTiming = document.getElementById("crnt-timing");
 const totalDuration = document.getElementById("total-duration");
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 const music = document.querySelector("audio");
 const innerProgressBar = document.getElementById("inner-bar");
+const ProgressBar = document.getElementById("progress-bar");
 
 const songs = [
     {
@@ -69,14 +70,38 @@ function nextSong(){
 function updateProgress(e){
     if(isPlaying){
         const {duration, currentTime} =  e.srcElement;
+
+        const durationMinutes = Math.floor(duration / 60);
+        let durationSeconds = Math.floor(duration % 60);
+        durationSeconds = durationSeconds < 10 ? `0${durationSeconds}` : durationSeconds;
+        if(durationSeconds){
+            totalDuration.textContent = `${durationMinutes}:${durationSeconds}`;
+        }
+        
+        const currentMinutes = Math.floor(currentTime / 60);
+        let currentSeconds = Math.floor(currentTime % 60);
+        currentSeconds = currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds;
+        if(currentSeconds){
+            currentTiming.textContent = `${currentMinutes}:${currentSeconds}`;
+        }
+
         innerProgressBar.style.width = `${(currentTime / duration) * 100}%`;
+        
     }
 }
+
+function changeCurrentTime(e){
+    const {duration} = music;
+    music.currentTime = `${(e.offsetX / this.clientWidth) * duration}`;
+    playSong();
+}
+
 
 loadSong(songIndex);
 
 music.addEventListener("timeupdate", updateProgress);
-
+music.addEventListener("ended", nextSong);
+ProgressBar.addEventListener("click", changeCurrentTime);
 playBtn.addEventListener("click", ()=> isPlaying ? pauseSong() : playSong());
 prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);

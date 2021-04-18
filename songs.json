@@ -1,0 +1,20 @@
+[
+    {
+        "title":"Aadat",
+        "artist":"Sucha Yaar",
+        "coverImage":"./img/jacinto-1.jpg",
+        "filePath":"./music/Aadat Sucha Yaar.mp3"
+    },
+    {
+        "title":"Adhi adhi raat",
+        "artist":"Bilal Saeed",
+        "coverImage":"./img/jacinto-2.jpg",
+        "filePath":"./music/Adhi-Adhi-Raat-Bilal-Saeed.mp3"
+    },
+    {
+        "title":"Akhian",
+        "artist":"Happy Raikoti",
+        "coverImage":"./img/jacinto-3.jpg",
+        "filePath":"./music/Akhian - Happy Raikoti.mp3"
+    }
+]
